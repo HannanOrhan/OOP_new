@@ -1,0 +1,103 @@
+--------------------------------------ABSTRACTION-----------------------------------------------------------------------
+What is abstraction?
+Hiding implementation details of function from the user.
+Only functionality will be provided to the user. User will have the information on what the object does instead of how it
+does.
+Ignore details. Focus only on relevant properties of the problem.
+methods:
+    give access modifier, static keyword, return type, method name, (parameter/s), { //body }
+
+We should focus on what is necessity for sub classes in parent class.
+Process of hiding implementation details from the user
+Only the functionality will be provided to the user
+Focus on the essential qualities of something rather than the one specific example.
+
+------------------------------ABSTRACT METHOD---------------------------------------------------------------------------
+
+A method does not have body, only signature
+A method that's meant to be overridden, MUST
+keyword ---> abstract / public abstract void eat();
+                     /public abstract double eat();
+
+Without implementation method will be useless. We can give implementation with overriding.
+Without body we have to create method abstract. otherwise it gives compiler error
+Implementation of abstract method sub class responsibility
+
+
+public class Test2 extends Test{
+
+    @Override
+    public void eat() {//if we can not implement abstract method it gives comp. error
+                       //eat() abstract method
+        System.out.println("I create body for abstract eat method.");
+    }
+
+    public static void main(String[] args) {
+        //Test test1 = new Test(); //comp error
+        //Test abstract class
+    }
+}
+
+* An abstract method can not be static / final, final prevents to method overridden.
+* An abstract method can not have private access modifier
+* An abstract method does not have body
+* An abstract method only be created in an abstract class / in an interface
+
+For class abstract means template we can not create object from abstract class ? YES
+Abstract method can be given to abstract class, and we have to implement abstract methods otherwise it gives comp error.
+Implementation abstract method is child class responsibility.
+
+** Static and final method can not override
+** But abstract method all about method overriding
+
+------------------------------ABSTRACT CLASS---------------------------------------------------------------------------
+
+Abstract class meant to be parent. Abstract class can not be final because "final" keyword prevents inheritance.
+Abstract class does not have object. It is like template for sub classes.
+
+
+We can not create object from abstract class, we can only create object from concrete classes.
+
+Concrete class = non abstract class that is extending from abstract class.
+concrete = class that we extend from abstract class
+
+Difference between instantiate & initialize?
+When we create object --> instantiate
+When we assign value to the variable --> initialize
+
+What benefit abstract can give us?
+One of the way abstraction because we can only have abstract method inside abstract class.
+Parent class will be able to ignore the details.
+
+========================================================================================================================
+
+*** Abstract class' first way to achieve abstraction through the abstract method which can help us to hide implementations.
+Abstract method can be created from abstract class or from interface
+
+========================================================================================================================
+We use abstract class whenever parent class needs to provide common features/functionalities for all the sub classes
+
+
+RULES -----------------------------------------------------------------------------\
+1. Can not have body
+2. Can not be static* because static can not be overridden
+3. Can not be final*  because final can not be overridden
+4. Can not be private* because private can not be overridden
+5. An abstract method can only be declared in an "abstract class" or in an "interface"
+6. We can not give less visible access modifier to the sub-class abstract method than super class
+
+X static  ,   X final  , X private
+
+ONLY 2 WAY TO CREATE ----> 1. ABSTRACT CLASS
+                     ----> 2. INTERFACE
+
+GOAL : Provide re-usable variables and methods that class need
+
+CREATING OBJECT : An abstract class is meant to be inherited ONLY, not meant to be instantiated.
+                  Concrete class can be instantiated. (Concrete is child class of Abstract class)
+
+MUST : Concrete class Must* implement all abstract methods of super class
+
+HINT :  Abstract method can be public, protected and default but
+        Protected can be accessible from another package while inheritance between classes
+        Default can not be accessible from another package it is ONLY accessible inside the same package/class

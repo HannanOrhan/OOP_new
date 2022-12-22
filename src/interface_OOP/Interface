@@ -1,0 +1,75 @@
+
+                                          WHAT IS INTERFACE?
+
+One class can extends only one, but using interface we can extends multiple class for one class.
+Interface allows multiple inheritance.
+There no limit implement interfaces to the one class
+
+Interface is a blueprint of a class. keyword --> interface
+Specifies the behavior/s that a class should implement.
+Provides additional methods that class/es need.
+We can achieve %100 abstraction by using interfaces.
+
+What is the benefit of interface?
+it increases re-usability our code.
+
+We can use interface for seperated classes. It doesn't have to any relation(is-a) between classes which implement same interface.
+
+---------------------------------------------PROPERTIES OF INTERFACE----------------------------------------------------
+
+Variables are static & final by default
+Interface can have static methods, abstract methods and default methods only
+Public keyword is the only access modifier that can be used in interface(except for static methods) and given by default
+Abstract keyword is given by default to the abstract methods of interface
+
+
+---------------------------------------------WHAT INTERFACE CAN NOT HAVE?-----------------------------------------------
+
+X Instance variables
+X Instance methods
+X Constructors
+X Initializer block
+X We can not CREATE object
+
+---------------------------------------------WHAT INTERFACE CAN HAVE?---------------------------------------------------
+\/ Final & static variables only
+\/ Static, abstract and default methods only
+
+---------------------------------------------IMPLEMENTING THE INTERFACE-------------------------------------------------
+
+Class can extend only one superclass, but java allows a class to implement multiple interfaces
+"implements" keyword is used to inherit from interface/s
+When class implements multiple interfaces , it must implement(override) all the abstract methods
+
+public class MyClass implements Interface1, Interface2, Interface3{}
+
+In interface we can not create instances. If we wanna create instance variable/s we need to use abstract class.
+Because interface variables are static & final by default.
+
+------------------------------------------------------------------------------------------------------------------------
+
+public interface Playable {
+
+    boolean isFriendly = true; //final and static by default, AM = public by default not necessary to give public keyword
+                               //AM is given implicitly
+
+
+     static void main(String[] args) { //for main method we don't need to give public access modifier
+        //isFriendly = false;//it gives comp. error because it is final as default
+
+        System.out.println(isFriendly);
+    }
+
+    //default & private AM is allowed . We can give these AM to the method
+
+    default void method1(){}                     // --> optional
+    private String method2(){return "";}        // --> optional
+
+    //Interface it should have abstract method
+    //We don't need to give AM(Access modifier) and "abstract" keyword
+
+    void play();
+
+}
+
+	hint: interface can inherit from another interface

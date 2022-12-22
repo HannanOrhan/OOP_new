@@ -1,0 +1,153 @@
+                                    POLYMORPHISM
+   RULES ---------------------------------------------------------------------------------------------------------------
+
+   Reference type can be parent class or interface
+   Object type can be any extending or implementing child class
+   Reference type decides what is accessible
+   Object type decides which implementation of the method to be executed when the method is called
+
+  ----------------------------------------------------------------------------------------------------------------------
+   We can not reach polymorphism without inheritance.
+    Encapsulation : hiding data
+    Inheritance : creating is-a relationship
+    Abstraction : hiding implementation details from user.
+    Polymorphism : ability of the objects to  take on many forms
+
+POLYMORPHISM - cok bicimlilik
+
+Animal animal1 = new Dog();
+Animal animal2 = new Cat();
+Animal animal3 = new Bird();
+Flyable animal4 = new Eagle();
+
+*interface can be reference type.
+Parent it can be reference any child object as long as there is is-a relation.
+Parent can reference to the all child objects.
+
+Reference type always decide what we can call or we can not call.
+Only the methods/variables in reference type can be called.
+
+------------------------------------------------------------------------------------------------------------------------
+
+        String str = "Java";
+
+        Integer n = 100;
+
+        Boolean b = false;
+
+        Double d = 10.5;
+
+        Circle circle = new Circle("c",4);
+
+        Honda honda = new Honda("Civic","White", LocalDate.of(2000,1,1),50_000);
+
+        Audi audi = new Audi("Q6","Black", LocalDate.of(1886,1,1),60_000);
+
+        Tesla tesla = new Tesla("Model Y","Silver", LocalDate.of(2020,1,1),80_000);
+
+
+        //All of them are object type, Object class is a parent class of all the classes.
+        //it is represented under the java.lang
+
+        Object[] objects = {str,n,b,d,circle,honda,audi,tesla};
+
+        Employee[] employees = {dev1,tester1}; // I can only store Employee type object
+
+            System.out.println("-----------------------------------------------------------------------------------------------------------");
+
+                Object obj = new Developer("Hannan",27,'F',"A01","Junior Dev",90_000,"Java");
+
+                //obj.work();  //--> comp error because obj can not have work method reference type of Developer class can call this method
+
+                Employee obj2 = new Developer("Hannan",27,'F',"A01","Junior Dev",90_000,"Java");
+
+                obj2.work();
+------------------------------------------------------------------------------------------------------------------------
+
+ONE MANDATORY RULE : When we call method, it will call overridden version from a child class
+
+------------------------------------------------------------------------------------------------------------------------
+
+instanceof keyword can be used to check if the object is certain class -- returns boolean
+
+
+------------------------------------------------------------------------------------------------------------------------
+What are reference type castings?
+
+Casting one reference type to another.
+We are using type-casting because reference type decides what is accessible.
+
+parent --> child -- DOWN-CASTING
+child --> parent -- UP-CASTING
+
+------------------------------------------------------------------------------------------------------------------------
+                                      SUMMARY
+Inheritance must before polymorphism happens
+
+-------------------------------------------- Reference Type Casting ---------------------------------------------------
+
+Casting : converting one type to another
+
+    1. Primitive type casting : must have between primitives
+        a. implicit primitive type casting
+            casting smaller primitive - to -> large primitive
+            int a=100;
+            double b=a;
+
+        b.explicit primitive type casting
+            larger primitive -to-> smaller primitive
+            long a = 100;
+            short b = (short) a;
+
+    autoboxing --> unboxing == primitive --> Wrapper class object
+
+    2.reference type castings
+        there must be inheritance **  IS-A relation MUST otherwise ClassCastException will be thrown
+        there is 2 types of reference type castings: up-casting and down-casting
+
+       ------ Up-casting ------
+       smaller --> larger
+       allows us to the achieve polymorphism without any explicit action
+
+       Animal animal1 = new Cat();
+
+       Dog dog = new Dog();
+       Animal animal2 = dog;
+
+       ------ Down-casting ------
+       larger --> smaller
+       Animal animal1 = new Animal();
+
+              Dog dog = new Dog();
+              dog = (Dog)animal1;
+
+  ----------------------------------------------------------------------------------------------------------------------
+       OOP Polymorphism:
+            Parent type being referenced to the child object
+            ability of the object to take on many forms as long as there is inheritance
+            "IS-A" relationship MUST
+
+            Reference type can be either parent class or parent interface, and object must be created from child class
+            Reference type decides what can be called/accessed
+            Object type decides which implementation will be executed
+
+       Runtime Polymorphism - Dynamic Polymorphism :  Method overriding
+                                                      one method with multiple implementation (revealed during the run time)
+
+                eat():
+                implementation1 : Baklava
+                implementation2 : Java
+                ...
+
+        eat() method could be 100 times run as long as 100 sub classes but at the end only one implementation will be executed
+        that implementation only be revealed during the run time.
+        revealed: meydana cikmak
+
+       Compile time Polymorphism - Static Polymorphism : Method overloading
+                                   Multiple  method with the same name
+                                   each method has one implementation ONLY(revealed during the compile time
+
+                  add(n1, n2);
+                  add(n1, n2, n3);          They are different methods
+
+        IF method overridden, overridden version is executed but if not original version is exxecuted
