@@ -1,0 +1,75 @@
+--------------------------------------------METHOD OVERRIDE-------------------------------------------------------------
+Change the original implementation --> purpose of override method
+Changing body of methods in different object implementation. Same method with different implementation.
+We can override method between two classes if they have is-a relationship.
+Method overriding must have in sub class.
+Override method numbers depends on number of sub classes.
+It has to be visible. private access modifier prevent to override method.
+Also static method can not be overriding because for each object method should change. Static method created only once.
+Static belongs to the class so it can not override.
+Only instance methods(except private & final) can be overridden
+Any method can be override even constructor.
+Access modifier of the overridden method needs to be same or more visible.
+*Static method can not be overridden
+
+*If we don't need to give different implementation we don't need to override method to sub-class.
+
+------------------------------------------------------------------------------------------------------------------------
+
+WHAT IS OVERRIDE METHOD?
+
+It allows us to different implementations to the method.
+One method having multiple different implementation. MUST take place in subclass.
+Less memory usage and improves usability of our code
+When we need same action but different output we use override method to use with different implementation.
+
+------------------------------------------------------------------------------------------------------------------------
+
+OVERLOAD                                                OVERRIDE
+------------------------------------------------------------------------------------------------------------------------
+it is performed within class                            it occurs in two classes that have is-a relationship
+parameter must be different                             parameter must be same
+access specifier can be changed                         we can not give default and private - it has to be same or more visible(less restrictive)
+private and final can be overloaded                     private and final can not be overloaded
+return type can be same or different                    return type must be same
+
+
+----------------------------------------------FINAL KEYWORD-------------------------------------------------------------
+
+Final used to restrict the user. final keyword only applicable for -> variable/class/method
+When we give final keyword it gives restrictions and makes the features unchangeable(immutable)
+Constructor can not be final.
+
+FINAL variable -> stop value change (immutable)
+      method   -> prevent method overriding
+      class    -> prevent inheritance
+
+---------- ========================== -------------FINAL VARIABLE--------------- ============================ ----------
+
+ Variable becomes a  constant
+ We can not reassign a final variable-can not be modified.
+
+ final int number = 100;
+ number = 200; //comp. error
+
+ *Final variables do not have default value we have to initialize.
+
+----------  ========================== -------------FINAL METHOD--------------- ============================ -----------
+
+When we made method final it means that method can not be overridden.
+We can not apply final to constructor. Final for regular methods. Because final means unchangeable.
+Any method can be overloaded.
+
+*We can not generate setter method for the final instance variable.
+
+ ========================== -------------FINAL CLASS--------------- ============================
+
+ When we give final that class can not be parent class.
+ Final method can not be overridden.
+ We can not inherit String class because String class is final. Final classes can not inherited.
+ If we need to make a class parent don't give final keyword. Because final class can not inherit.
+ Constructor can not be final.
+
+ How do we have object not eligible for garbage collector?
+ Unreferenced object is eligible for GC.
+ We can make object final.
